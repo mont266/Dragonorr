@@ -1,18 +1,69 @@
-/// @description Character Engine
+//// @description Player Engine
+#region Key Bindings
 keyup		= keyboard_check(ord("W"));
 keyleft		= keyboard_check(ord("A"));
 keydown		= keyboard_check(ord("S"));
 keyright	= keyboard_check(ord("D"));
-
-if (keyup) {
-	y -= charspeed;	
+sprint		= keyboard_check(vk_lshift);
+#endregion
+#region Sprite Change
+if (facing = 0) {
+	sprite_index = spr_player_up;
 }
-if (keydown) {
-	y += charspeed;
+if (facing = 1) {
+	sprite_index = spr_player_down;
+}
+if (facing = 2) {
+	sprite_index = spr_player_left;
+}
+if (facing = 3) {
+	sprite_index = spr_player_right;
+}
+#endregion
+#region Movement Engine
+if (keyup) {
+	y -= playerspeed;
+	facing = 0;
 }
 if (keyleft) {
-	x -= charspeed;
+	x -= playerspeed;
+	facing = 2;
+}
+if (keydown) {
+	y += playerspeed;
+	facing = 1;
 }
 if (keyright) {
-	x += charspeed;
+	x += playerspeed;
+	facing = 3;
 }
+
+//Sprinting
+if (sprint) {
+	playerspeed = 5;
+	image_speed = 4;
+} else {
+	playerspeed = 3;
+	image_speed = 1;
+}
+
+//Idle
+if (keyboard_check(vk_nokey)) {
+		image_speed = 0;
+		image_index = 0;
+}
+else {
+	image_speed = 1;	
+}
+#endregion
+#region Leveling Enging
+if (global.xp >= global.maxexp) {
+	global.level += 1;
+	global.prevexp = global.maxexp;
+	global.maxexp = global.prevexp + global.prevexp * 1.1;
+	global.xp = 0;
+}
+	if (keyboard_check_pressed(vk_enter)) {
+		global.xp += 20;
+	}
+#endregion
