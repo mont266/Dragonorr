@@ -67,3 +67,12 @@ if (global.xp >= global.maxexp) {
 		global.xp += 20;
 	}
 #endregion
+#region Woodcutting Engine
+if (global.woodcuttingxp >= global.woodcuttingmaxexp) {
+	global.woodcutting += 1;
+	global.xp += global.woodcutting * 10;
+	global.woodcuttingprevexp = global.woodcuttingmaxexp;
+	global.woodcuttingmaxexp = global.woodcuttingprevexp + global.woodcuttingprevexp * 1.1;
+	global.woodcuttingxp = 0;
+}
+#endregion

@@ -6,7 +6,8 @@
     "children": [
         "2c20ceda-2837-4a7b-87e1-8f15ab2b5de8",
         "21a1316e-84ba-4e7f-8ca9-f9fcad8ef091",
-        "e6670a12-5b94-425f-be2d-bb495abdfa0a"
+        "e6670a12-5b94-425f-be2d-bb495abdfa0a",
+        "03c854b9-384b-4f33-8c7d-3663c0d40d2d"
     ],
     "filterType": "GMObject",
     "folderName": "Assets",
