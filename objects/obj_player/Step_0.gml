@@ -24,18 +24,30 @@ if (facing = 3) {
 if (keyup) {
 	y -= playerspeed;
 	facing = 0;
+	if (obj_tree.chopping = true) {
+		obj_tree.chopping = false;
+	}
 }
 if (keyleft) {
 	x -= playerspeed;
 	facing = 2;
+	if (obj_tree.chopping = true) {
+		obj_tree.chopping = false;
+	}
 }
 if (keydown) {
 	y += playerspeed;
 	facing = 1;
+	if (obj_tree.chopping = true) {
+		obj_tree.chopping = false;
+	}
 }
 if (keyright) {
 	x += playerspeed;
 	facing = 3;
+	if (obj_tree.chopping = true) {
+		obj_tree.chopping = false;
+	}
 }
 
 //Sprinting
